@@ -62,6 +62,8 @@ return packer.startup(function(use)
 		end,
 	})
 
+  use 'folke/tokyonight.nvim'
+
 	-- Lua file styling
 	use({ "ckipp01/stylua-nvim", run = "cargo install stylua" })
 
