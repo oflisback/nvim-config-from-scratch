@@ -1,5 +1,7 @@
+.netrwhist
 /plugin
 rplugin.vim
 /shada
 /site
 /swap
+/undo
