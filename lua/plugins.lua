@@ -38,6 +38,13 @@ packer.init {
   },
 }
 
+local with_root_file = function(...)
+  local files = { ... }
+  return function(utils)
+    return utils.root_has_file(files)
+  end
+end
+
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
@@ -55,7 +62,9 @@ return packer.startup(function(use)
 
 require("null-ls").setup({
     sources = {
-        require("null-ls").builtins.diagnostics.selene,
+        require("null-ls").builtins.diagnostics.selene.with({
+		condition = with_root_file("selene.toml")
+	}),
         require("null-ls").builtins.formatting.stylua,
         require("null-ls").builtins.diagnostics.eslint,
         require("null-ls").builtins.completion.spell,
