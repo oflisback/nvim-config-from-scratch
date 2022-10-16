@@ -52,6 +52,12 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
+  -- Make firefox/chrome inputs neovim instances
+  use {
+	  'glacambre/firenvim',
+	  run = function() vim.fn['firenvim#install'](0) end
+  }
+
   use({
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
