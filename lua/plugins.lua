@@ -81,6 +81,10 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim'
+
 	-- Lua file styling
 	use({ "ckipp01/stylua-nvim", run = "cargo install stylua" })
 

@@ -52,5 +52,9 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+keymap("n", "<leader>f", "<cmd>Telescope find_files theme=dropdown<cr>", opts)
+keymap("n", "<leader>st", "<cmd>Telescope live_grep theme=dropdown<cr>", opts)
+
+
 -- To be overridden av typ <leader>l f och fint integrerat i which-keys, at some point
 -- vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, { desc = "Format file with LSP" })

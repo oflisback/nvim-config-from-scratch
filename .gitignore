@@ -6,3 +6,4 @@ rplugin.vim
 /swap
 /undo
 /lsp_servers
+telescope_history
