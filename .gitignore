@@ -5,3 +5,4 @@ rplugin.vim
 /site
 /swap
 /undo
+/lsp_servers
