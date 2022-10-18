@@ -66,7 +66,8 @@ require("telescope").setup {
     },
   },
 }
--- require("telescope").load_extension "fzf"
+-- This makes search fuzzy!
+require("telescope").load_extension "fzf"
 -- require("telescope").load_extension "harpoon"
 -- require("telescope").load_extension "notify"
 
