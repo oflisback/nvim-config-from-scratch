@@ -137,6 +137,11 @@ return packer.startup(function(use)
   -- project.nvim
   use "ahmedkhalf/project.nvim"
 
+  -- commenting
+  use "numToStr/Comment.nvim"
+  -- For files with mixed structures and comment styles eg ts+jsx
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
   -- indent-blankline
   use "lukas-reineke/indent-blankline.nvim"
 
