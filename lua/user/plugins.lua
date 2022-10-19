@@ -149,6 +149,9 @@ return packer.startup(function(use)
   use "ggandor/leap.nvim"
   require('leap').add_default_mappings()
 
+  -- which-key!
+  use "folke/which-key.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
