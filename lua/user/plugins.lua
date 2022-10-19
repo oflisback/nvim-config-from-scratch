@@ -145,6 +145,10 @@ return packer.startup(function(use)
   -- indent-blankline
   use "lukas-reineke/indent-blankline.nvim"
 
+  -- leap for quick movement in visible part of buffer
+  use "ggandor/leap.nvim"
+  require('leap').add_default_mappings()
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
