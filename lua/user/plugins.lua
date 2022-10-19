@@ -3,16 +3,16 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+  PACKER_BOOTSTRAP = fn.system({
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  })
+  print("Installing packer close and reopen Neovim...")
+  vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -26,34 +26,34 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+  return
 end
 
 -- Have packer use a popup window
 packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
+  display = {
+    open_fn = function()
+      return require("packer.util").float({ border = "rounded" })
+    end,
+  },
 })
 
 local with_root_file = function(...)
-	local files = { ... }
-	return function(utils)
-		return utils.root_has_file(files)
-	end
+  local files = { ... }
+  return function(utils)
+    return utils.root_has_file(files)
+  end
 end
 
 -- Install your plugins here
 return packer.startup(function(use)
-	-- My plugins here
-	use 'lewis6991/impatient.nvim'
+  -- My plugins here
+  use 'lewis6991/impatient.nvim'
 
-	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+  use("wbthomason/packer.nvim") -- Have packer manage itself
+  use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
-	use("~/repos/projs/private/nvim-config-switcher")
+  use("~/repos/projs/private/nvim-config-switcher")
 
   use 'lunarvim/darkplus.nvim'
 
@@ -79,39 +79,39 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope-media-files.nvim'
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
-	-- Lua file styling
-	use({ "ckipp01/stylua-nvim", run = "cargo install stylua" })
+  -- Lua file styling
+  use({ "ckipp01/stylua-nvim", run = "cargo install stylua" })
 
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("null-ls").setup()
-		end,
-		requires = { "nvim-lua/plenary.nvim" },
-	})
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("null-ls").setup()
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+  })
 
-	-- Lua
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			require("which-key").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	})
+  -- Lua
+  use({
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  })
 
-	require("null-ls").setup({
-		sources = {
-			require("null-ls").builtins.diagnostics.selene.with({
-				condition = with_root_file("selene.toml"),
-			}),
-			require("null-ls").builtins.formatting.stylua,
-			require("null-ls").builtins.diagnostics.eslint,
-			require("null-ls").builtins.completion.spell,
-		},
-	})
+  require("null-ls").setup({
+    sources = {
+      require("null-ls").builtins.diagnostics.selene.with({
+        condition = with_root_file("selene.toml"),
+      }),
+      require("null-ls").builtins.formatting.stylua,
+      require("null-ls").builtins.diagnostics.eslint,
+      require("null-ls").builtins.completion.spell,
+    },
+  })
 
   -- Treesitter
   use {
@@ -137,9 +137,12 @@ return packer.startup(function(use)
   -- project.nvim
   use "ahmedkhalf/project.nvim"
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
+  -- indent-blankline
+  use "lukas-reineke/indent-blankline.nvim"
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
