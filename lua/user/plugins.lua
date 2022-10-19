@@ -54,14 +54,6 @@ return packer.startup(function(use)
 
 	use("~/repos/projs/private/nvim-config-switcher")
 
-	-- Make firefox/chrome inputs neovim instances
-	use({
-		"glacambre/firenvim",
-		run = function()
-			vim.fn["firenvim#install"](0)
-		end,
-	})
-
   use 'lunarvim/darkplus.nvim'
 
   -- cmp plugins
@@ -140,6 +132,9 @@ return packer.startup(function(use)
 
   -- lualine
   use 'nvim-lualine/lualine.nvim'
+
+  -- project.nvim
+  use "ahmedkhalf/project.nvim"
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

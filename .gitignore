@@ -7,3 +7,4 @@ rplugin.vim
 /undo
 /lsp_servers
 telescope_history
+/project_nvim
