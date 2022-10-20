@@ -89,11 +89,8 @@ local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["f"] = { "<cmd>lua require('user.telescope').find_files()<cr>", "Find files" },
+  ["F"] = { "<cmd>lua require('user.telescope').live_grep()<cr>", "Find text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
   p = {
@@ -128,7 +125,6 @@ local mappings = {
     },
   },
 
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -167,6 +163,8 @@ local mappings = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    f = { "<cmd>lua require('user.telescope').find_files()<cr>", "Find files" },
+    t = { "<cmd>lua require('user.telescope').live_grep()<cr>", "Live grep" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
