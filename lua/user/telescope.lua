@@ -201,6 +201,19 @@ function M.live_grep()
   })
 end
 
+M.oldfiles = function()
+  require("telescope.builtin").oldfiles({
+    prompt_title = "Recent files",
+    previewer = false,
+    shorten_path = true,
+    sorting_strategy = "ascending",
+    -- cwd = vim.env.DOTFILES,
+    hidden = true,
+    layout_config = { height = 0.3 },
+    layout_config = { width = 0.5 },
+  })
+end
+
 function M.lsp_workspace_symbols()
   require("telescope.builtin").lsp_workspace_symbols()
 end

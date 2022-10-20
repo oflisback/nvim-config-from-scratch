@@ -96,7 +96,7 @@ return packer.startup(function(use)
         condition = with_root_file("selene.toml"),
       }),
       require("null-ls").builtins.completion.spell,
-      require("null-ls").builtins.diagnostics.eslint,
+      require("null-ls").builtins.diagnostics.eslint_d,
       require("null-ls").builtins.formatting.black,
       require("null-ls").builtins.formatting.prettierd,
       require("null-ls").builtins.formatting.stylua,
@@ -110,6 +110,8 @@ return packer.startup(function(use)
   })
   use("p00f/nvim-ts-rainbow")
   use("nvim-treesitter/playground")
+  -- indent-blankline to indicate indentation level / scope
+  use("lukas-reineke/indent-blankline.nvim")
 
   -- Git
   use("lewis6991/gitsigns.nvim")
@@ -131,9 +133,6 @@ return packer.startup(function(use)
   use("numToStr/Comment.nvim")
   -- For files with mixed structures and comment styles eg ts+jsx
   use("JoosepAlviste/nvim-ts-context-commentstring")
-
-  -- indent-blankline
-  use("lukas-reineke/indent-blankline.nvim")
 
   -- leap for quick movement in visible part of buffer
   use("ggandor/leap.nvim")

@@ -90,7 +90,7 @@ local mappings = {
   ["c"] = { "<cmd>bd!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = { "<cmd>lua require('user.telescope').find_files()<cr>", "Find files" },
-  ["r"] = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
+  ["r"] = { "<cmd>lua require('user.telescope').oldfiles()<cr>", "Recent files" },
   ["F"] = { "<cmd>lua require('user.telescope').live_grep()<cr>", "Find text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
@@ -174,7 +174,7 @@ local mappings = {
     t = { "<cmd>lua require('user.telescope').live_grep()<cr>", "Live grep" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    r = { "<cmd>lua require('user.telescope').oldfiles()<cr>", "Recent files" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
