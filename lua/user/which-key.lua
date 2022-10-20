@@ -90,6 +90,7 @@ local mappings = {
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = { "<cmd>lua require('user.telescope').find_files()<cr>", "Find files" },
+  ["r"] = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
   ["F"] = { "<cmd>lua require('user.telescope').live_grep()<cr>", "Find text" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
@@ -105,6 +106,7 @@ local mappings = {
   g = {
     name = "Git",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+    h = { "<cmd>:GHInteractive<CR>", "Open in browser" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },

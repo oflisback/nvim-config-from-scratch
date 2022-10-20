@@ -145,6 +145,9 @@ return packer.startup(function(use)
   -- remove trailing whitespace on modified lines on save
   use("axelf4/vim-strip-trailing-whitespace")
 
+  -- navigate to github/gitlab url for source line
+  use("ruanyl/vim-gh-line")
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
