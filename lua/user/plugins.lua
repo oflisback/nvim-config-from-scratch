@@ -55,7 +55,7 @@ return packer.startup(function(use)
 
   use("~/repos/projs/private/nvim-config-switcher")
 
-  use("lunarvim/darkplus.nvim")
+  use("folke/tokyonight.nvim")
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
