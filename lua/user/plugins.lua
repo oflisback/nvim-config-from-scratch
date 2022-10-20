@@ -48,36 +48,36 @@ end
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use 'lewis6991/impatient.nvim'
+  use("lewis6991/impatient.nvim")
 
   use("wbthomason/packer.nvim") -- Have packer manage itself
   use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
   use("~/repos/projs/private/nvim-config-switcher")
 
-  use 'lunarvim/darkplus.nvim'
+  use("lunarvim/darkplus.nvim")
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
+  use("hrsh7th/nvim-cmp") -- The completion plugin
+  use("hrsh7th/cmp-buffer") -- buffer completions
+  use("hrsh7th/cmp-path") -- path completions
+  use("hrsh7th/cmp-cmdline") -- cmdline completions
+  use("saadparwaiz1/cmp_luasnip") -- snippet completions
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-nvim-lua")
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use("L3MON4D3/LuaSnip") --snippet engine
+  use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use("neovim/nvim-lspconfig") -- enable LSP
+  use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
-  use 'nvim-telescope/telescope-media-files.nvim'
-  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+  use("nvim-telescope/telescope.nvim")
+  use("nvim-telescope/telescope-media-files.nvim")
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- Lua file styling
   use({ "ckipp01/stylua-nvim", run = "cargo install stylua" })
@@ -90,67 +90,60 @@ return packer.startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   })
 
-  -- Lua
-  use({
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup({
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      })
-    end,
-  })
-
   require("null-ls").setup({
     sources = {
       require("null-ls").builtins.diagnostics.selene.with({
         condition = with_root_file("selene.toml"),
       }),
-      require("null-ls").builtins.formatting.stylua,
-      require("null-ls").builtins.diagnostics.eslint,
       require("null-ls").builtins.completion.spell,
+      require("null-ls").builtins.diagnostics.eslint,
+      require("null-ls").builtins.formatting.black,
+      require("null-ls").builtins.formatting.prettierd,
+      require("null-ls").builtins.formatting.stylua,
     },
   })
 
   -- Treesitter
-  use {
+  use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-  }
-  use "p00f/nvim-ts-rainbow"
-  use "nvim-treesitter/playground"
+  })
+  use("p00f/nvim-ts-rainbow")
+  use("nvim-treesitter/playground")
 
   -- Git
-  use "lewis6991/gitsigns.nvim"
+  use("lewis6991/gitsigns.nvim")
 
   -- Nvim-tree
-  use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use("kyazdani42/nvim-web-devicons")
+  use("kyazdani42/nvim-tree.lua")
 
   -- Bufferline
-  use "akinsho/bufferline.nvim"
+  use("akinsho/bufferline.nvim")
 
   -- lualine
-  use 'nvim-lualine/lualine.nvim'
+  use("nvim-lualine/lualine.nvim")
 
   -- project.nvim
-  use "ahmedkhalf/project.nvim"
+  use("ahmedkhalf/project.nvim")
 
   -- commenting
-  use "numToStr/Comment.nvim"
+  use("numToStr/Comment.nvim")
   -- For files with mixed structures and comment styles eg ts+jsx
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use("JoosepAlviste/nvim-ts-context-commentstring")
 
   -- indent-blankline
-  use "lukas-reineke/indent-blankline.nvim"
+  use("lukas-reineke/indent-blankline.nvim")
 
   -- leap for quick movement in visible part of buffer
-  use "ggandor/leap.nvim"
-  require('leap').add_default_mappings()
+  use("ggandor/leap.nvim")
+  require("leap").add_default_mappings()
 
   -- which-key!
-  use "folke/which-key.nvim"
+  use("folke/which-key.nvim")
+
+  -- remove trailing whitespace on modified lines on save
+  use("axelf4/vim-strip-trailing-whitespace")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
