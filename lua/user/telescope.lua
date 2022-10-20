@@ -1,8 +1,8 @@
 local M = {}
-local themes = require "telescope.themes"
-local actions = require "telescope.actions"
+local themes = require("telescope.themes")
+local actions = require("telescope.actions")
 
-require("telescope").setup {
+require("telescope").setup({
   defaults = {
     prompt_prefix = "❯ ",
     selection_caret = "❯ ",
@@ -65,14 +65,14 @@ require("telescope").setup {
       previewer = false,
     },
   },
-}
+})
 -- This makes search fuzzy!
-require("telescope").load_extension "fzf"
+require("telescope").load_extension("fzf")
 -- require("telescope").load_extension "harpoon"
 -- require("telescope").load_extension "notify"
 
 function M.find_files()
-  local opts = themes.get_dropdown {
+  local opts = themes.get_dropdown({
     previewer = false,
     shorthen_path = false,
     path_display = { "truncate" },
@@ -87,13 +87,13 @@ function M.find_files()
         return math.min(max_lines, 40)
       end,
     },
-  }
+  })
   require("telescope.builtin").find_files(opts)
 end
 
 function M.find_files_relative()
-  local basename = vim.fn.expand('%:h')
-  local opts = themes.get_dropdown {
+  local basename = vim.fn.expand("%:h")
+  local opts = themes.get_dropdown({
     prompt_title = "~ Relative Files ~",
     previewer = false,
     shorthen_path = false,
@@ -110,24 +110,24 @@ function M.find_files_relative()
         return math.min(max_lines, 80)
       end,
     },
-  }
+  })
   require("telescope.builtin").find_files(opts)
 end
 
 function M.buffers()
-  local opts = themes.get_dropdown {
+  local opts = themes.get_dropdown({
     previewer = false,
     shorthen_path = false,
     path_display = { "shorten" },
     layout_config = {
       prompt_position = "top",
     },
-  }
+  })
   require("telescope.builtin").buffers(opts)
 end
 
 function M.todo()
-  local opts = themes.get_dropdown {
+  local opts = themes.get_dropdown({
     prompt_title = "~ ToDo Notes ~",
     search_dirs = { todo = "~/pvt/notes" },
     previewer = false,
@@ -135,12 +135,12 @@ function M.todo()
     layout_config = {
       prompt_position = "top",
     },
-  }
+  })
   require("telescope.builtin").find_files(opts)
 end
 
 function M.edit_neovim()
-  require("telescope.builtin").find_files {
+  require("telescope.builtin").find_files({
     prompt_title = "~ neovim ~",
     cwd = "~/.config/nvim",
 
@@ -149,28 +149,28 @@ function M.edit_neovim()
       preview_width = 0.65,
     },
     path_display = { "shorten" },
-  }
+  })
 end
 
 function M.git_status()
-  local opts = themes.get_dropdown {
+  local opts = themes.get_dropdown({
     previewer = false,
     path_display = { "absolute" },
     layout_config = {
       prompt_position = "top",
     },
-  }
+  })
   require("telescope.builtin").git_status(opts)
 end
 
 function M.git_files()
-  local opts = themes.get_dropdown {
+  local opts = themes.get_dropdown({
     previewer = false,
     path_display = { "absolute" },
     layout_config = {
       prompt_position = "top",
     },
-  }
+  })
   require("telescope.builtin").git_files(opts)
 end
 
@@ -195,10 +195,10 @@ function M.grep_last_search(opts)
 end
 
 function M.live_grep()
-  require("telescope.builtin").live_grep {
+  require("telescope.builtin").live_grep({
     glob_pattern = { "!package-lock.json", "!yarn.lock" },
-    previewer = false
-  }
+    previewer = false,
+  })
 end
 
 function M.lsp_workspace_symbols()
