@@ -147,6 +147,9 @@ return packer.startup(function(use)
   -- navigate to github/gitlab url for source line
   use("ruanyl/vim-gh-line")
 
+  -- trouble, to direct telescope results to quickfix and more
+  use("folke/trouble.nvim")
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
