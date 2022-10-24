@@ -76,21 +76,22 @@ require("telescope").load_extension("fzf")
 -- require("telescope").load_extension "harpoon"
 -- require("telescope").load_extension "notify"
 
+function M.fullscreen_width(_, max_columns, _)
+  return math.min(max_columns, 160)
+end
+
+function M.fullscreen_height(_, _, max_lines)
+  return math.min(max_lines, 80)
+end
+
 function M.find_files()
   local opts = themes.get_dropdown({
     previewer = false,
     shorthen_path = false,
     path_display = { "truncate" },
     layout_config = {
-      preview_cutoff = 1, -- Preview should always show (unless previewer = false)
-
-      width = function(_, max_columns, _)
-        return math.min(max_columns, 120)
-      end,
-
-      height = function(_, _, max_lines)
-        return math.min(max_lines, 40)
-      end,
+      height = M.fullscreen_height,
+      width = M.fullscreen_width,
     },
   })
   require("telescope.builtin").find_files(opts)
@@ -105,15 +106,8 @@ function M.find_files_relative()
     cwd = basename,
     path_display = { "truncate" },
     layout_config = {
-      preview_cutoff = 1, -- Preview should always show (unless previewer = false)
-
-      width = function(_, max_columns, _)
-        return math.min(max_columns, 140)
-      end,
-
-      height = function(_, _, max_lines)
-        return math.min(max_lines, 80)
-      end,
+      height = M.fullscreen_height,
+      width = M.fullscreen_width,
     },
   })
   require("telescope.builtin").find_files(opts)
@@ -214,8 +208,13 @@ M.oldfiles = function()
     sorting_strategy = "ascending",
     -- cwd = vim.env.DOTFILES,
     hidden = true,
-    layout_config = { height = 0.3 },
-    layout_config = { width = 0.5 },
+    width = function(_, max_columns, _)
+      return math.min(max_columns, 160)
+    end,
+
+    height = function(_, _, max_lines)
+      return math.min(max_lines, 80)
+    end,
   })
 end
 
