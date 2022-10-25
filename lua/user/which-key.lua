@@ -130,18 +130,12 @@ local mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = {
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
-      "Document Diagnostics",
-    },
+    d = { "<cmd>lua require('user.telescope').document_diagnostics()<cr>", "Document Diagnostics" },
     h = {
       "<cmd>lua vim.diagnostic.open_float()<cr>",
       "Diagnostic",
     },
-    w = {
-      "<cmd>Telescope diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
+    w = { "<cmd>lua require('user.telescope').workspace_diagnostics()<cr>", "Workspace Diagnostics" },
     W = {
       "<cmd>StripTrailingWhitespace<cr>",
       "Strip trailing whitespace in file",

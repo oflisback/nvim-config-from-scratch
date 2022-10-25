@@ -65,6 +65,11 @@ require("telescope").setup({
     lsp_code_actions = { theme = "dropdown" },
     lsp_definitions = { theme = "dropdown" },
     lsp_implementations = { theme = "dropdown" },
+    live_grep = {
+      mappings = {
+        i = { ["<c-f>"] = actions.to_fuzzy_refine },
+      },
+    },
     buffers = {
       sort_lastused = true,
       previewer = false,
@@ -95,6 +100,14 @@ function M.find_files()
     },
   })
   require("telescope.builtin").find_files(opts)
+end
+
+function M.document_diagnostics()
+  require("telescope.builtin").diagnostics(themes.get_dropdown({ bufnr = 0 }))
+end
+
+function M.workspace_diagnostics()
+  require("telescope.builtin").diagnostics(themes.get_dropdown({}))
 end
 
 function M.find_files_relative()
