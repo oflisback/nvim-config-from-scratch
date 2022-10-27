@@ -151,6 +151,9 @@ return packer.startup(function(use)
   -- trouble, to direct telescope results to quickfix and more
   use("folke/trouble.nvim")
 
+  -- lazygit
+  use("kdheepak/lazygit.nvim")
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

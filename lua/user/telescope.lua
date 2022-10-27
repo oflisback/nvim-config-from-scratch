@@ -45,9 +45,11 @@ require("telescope").setup({
         ["<esc>"] = actions.close,
         ["<C-h>"] = "which_key",
         ["<c-t>"] = trouble.open_with_trouble,
+        ["<c-q>"] = trouble.open_with_trouble,
       },
       n = {
         ["<c-t>"] = trouble.open_with_trouble,
+        ["<c-q>"] = trouble.open_with_trouble,
       },
     },
   },
