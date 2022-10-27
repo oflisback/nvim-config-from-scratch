@@ -135,6 +135,10 @@ local mappings = {
       "<cmd>lua vim.diagnostic.open_float()<cr>",
       "Diagnostic",
     },
+    s = {
+      "<cmd>lua vim.lsp.buf.hover()<cr>",
+      "Symbol info",
+    },
     w = { "<cmd>lua require('user.telescope').workspace_diagnostics()<cr>", "Workspace Diagnostics" },
     W = {
       "<cmd>StripTrailingWhitespace<cr>",
@@ -154,7 +158,6 @@ local mappings = {
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
