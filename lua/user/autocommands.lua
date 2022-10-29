@@ -6,7 +6,6 @@
 vim.cmd([[
   augroup _general_settings
     autocmd!
-      autocmd BufWritePre * lua vim.lsp.buf.format { async = false }
       autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
   augroup end
 
@@ -20,3 +19,16 @@ vim.cmd([[
     autocmd FileType markdown setlocal spell
   augroup end
 ]])
+
+vim.api.nvim_create_augroup("lsp_format_on_save", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = "lsp_format_on_save",
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "yaml" then
+      -- Don't format yaml files on save
+      return
+    end
+    vim.lsp.buf.format({ async = false })
+  end,
+})
