@@ -102,31 +102,34 @@ local mappings = {
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
-
   g = {
-    name = "Git",
-    g = { "<cmd>:LazyGit<CR>", "Lazygit" },
-    h = { "<cmd>:GHInteractive<CR>", "Open in browser" },
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    u = {
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-      "Undo Stage Hunk",
-    },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    name = "+Git",
+    b = { "<cmd>Git blame<cr>", "Blame" },
     d = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
+    g = { "<cmd>:Git<CR>", "vim-fugitive status" },
+    h = { "<cmd>:GHInteractive<CR>", "Open in browser" },
+    j = { '<cmd>lua require"gitsigns".next_hunk()<CR>', "Next Hunk" },
+    k = { '<cmd>lua require"gitsigns".prev_hunk()<CR>', "Prev Hunk" },
+    p = { '<cmd>lua require"gitsigns".preview_hunk()<CR>', "Preview Hunk" },
+    r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
+    s = { '<cmd>lua require"gitsigns".stage_hunk()<CR>', "Stage Hunk" },
+    u = { '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', "Undo Stage Hunk" },
+    c = {
+      name = "+Conflict Resolution",
+      s = { "<cmd>Gdiffsplit!<cr>", "Start" },
+      -- Fugitive follows a consistent naming convention when creating
+      -- buffers for the target and merge versions of a conflicted file.
+      -- The parent file from the target branch always includes the
+      -- string //2, while the parent from the merge branch always
+      -- contains //3.
+      h = { "<cmd>diffget //2<cr>", "Get hunk from left (target)" },
+      l = { "<cmd>diffget //3<cr>", "Get hunk from right (merge)" },
+      f = { "<cmd>Gwrite!<cr>", "Finish" },
+    },
   },
-
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
