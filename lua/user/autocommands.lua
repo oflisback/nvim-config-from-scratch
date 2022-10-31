@@ -1,8 +1,6 @@
 -- autocmd! removes all autocommands
 -- i.e. if entered under a group it will clear that group
 
---    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200})
-
 vim.cmd([[
   augroup _general_settings
     autocmd!

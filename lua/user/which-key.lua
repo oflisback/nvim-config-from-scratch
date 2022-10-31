@@ -180,6 +180,11 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
+  n = {
+    name = "Misc :O",
+    c = { "<cmd>lua require('telescope').extensions.neoclip.default()<cr>", "Neoclip" },
+  },
+
   t = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
