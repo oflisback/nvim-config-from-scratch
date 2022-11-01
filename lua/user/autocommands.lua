@@ -16,6 +16,12 @@ vim.cmd([[
     autocmd!
     autocmd FileType markdown setlocal spell
   augroup end
+
+  augroup _fugitive
+    autocmd!
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+  augroup end
+
 ]])
 
 vim.api.nvim_create_augroup("lsp_format_on_save", {})
