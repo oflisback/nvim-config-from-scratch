@@ -171,6 +171,16 @@ return packer.startup(function(use)
   use("cljoly/telescope-repo.nvim")
   use("airblade/vim-rooter")
 
+  -- markdown-preview, required manual install bc of config switcher
+  -- but is worth it! <leader>mp to toggle markdown preview
+  use({
+    "iamcco/markdown-preview.nvim",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

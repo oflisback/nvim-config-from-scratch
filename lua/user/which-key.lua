@@ -181,6 +181,11 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
+  m = {
+    name = "Misc :O",
+    p = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" },
+  },
+
   n = {
     name = "Misc :O",
     c = { "<cmd>lua require('telescope').extensions.neoclip.default()<cr>", "Neoclip" },
