@@ -92,6 +92,7 @@ local mappings = {
   ["f"] = { "<cmd>lua require('user.telescope').find_files()<cr>", "Find files" },
   ["r"] = { "<cmd>lua require('user.telescope').oldfiles()<cr>", "Recent files" },
   ["F"] = { "<cmd>lua require('user.telescope').live_grep()<cr>", "Find text" },
+  ["u"] = { "<cmd>UndotreeToggle<cr>", "Undo tree" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
   p = {
