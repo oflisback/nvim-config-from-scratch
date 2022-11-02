@@ -127,15 +127,13 @@ return packer.startup(function(use)
   -- lualine
   use("nvim-lualine/lualine.nvim")
 
-  -- project.nvim
-  use("ahmedkhalf/project.nvim")
-
   -- commenting
   use("numToStr/Comment.nvim")
   -- For files with mixed structures and comment styles eg ts+jsx
   use("JoosepAlviste/nvim-ts-context-commentstring")
 
   -- leap for quick movement in visible part of buffer
+  -- s<char><char> or reverse S<char><char>
   use("ggandor/leap.nvim")
   require("leap").add_default_mappings()
 
@@ -145,19 +143,19 @@ return packer.startup(function(use)
   -- remove trailing whitespace on modified lines on save
   use("axelf4/vim-strip-trailing-whitespace")
 
-  -- navigate to github/gitlab url for source line
+  -- navigate to github/gitlab url for source line with
+  -- <leader>gh
   use("ruanyl/vim-gh-line")
 
   -- trouble, to direct telescope results to quickfix and more
+  -- <leader>q to send telescope result to quickfix window
   use("folke/trouble.nvim")
 
-  -- lazygit
-  use("kdheepak/lazygit.nvim")
-
-  -- vim-fugitive
+  -- vim-fugitive teh awesomeness
   use("tpope/vim-fugitive")
 
   -- neoclip
+  -- clipboard history browser, <leader>nc
   use({
     "AckslD/nvim-neoclip.lua",
     requires = {
@@ -165,8 +163,13 @@ return packer.startup(function(use)
     },
   })
 
-  -- undotree
+  -- undotree, <leader>u to toggle undo tree panel
   use("mbbill/undotree")
+
+  -- telescope-repo, <leader>P for repo list + set current dir to
+  -- repo root.
+  use("cljoly/telescope-repo.nvim")
+  use("airblade/vim-rooter")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
