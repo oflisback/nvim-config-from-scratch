@@ -133,9 +133,8 @@ return packer.startup(function(use)
   use("JoosepAlviste/nvim-ts-context-commentstring")
 
   -- leap for quick movement in visible part of buffer
-  -- s<char><char> or reverse S<char><char>
+  -- <leader><Tab> for forward, <leader><S-Tab> for reverse.
   use("ggandor/leap.nvim")
-  require("leap").add_default_mappings()
 
   -- which-key!
   use("folke/which-key.nvim")
