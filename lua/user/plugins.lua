@@ -180,6 +180,10 @@ return packer.startup(function(use)
     ft = { "markdown" },
   })
 
+  -- toggleterm, awesome stuff, terminals with normal mode!
+  -- toggle with <leader>§, node with <leader>tn etc.
+  use("akinsho/toggleterm.nvim")
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
