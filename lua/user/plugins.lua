@@ -117,9 +117,21 @@ return packer.startup(function(use)
   -- Git
   use("lewis6991/gitsigns.nvim")
 
-  -- Nvim-tree
-  use("kyazdani42/nvim-web-devicons")
-  use("kyazdani42/nvim-tree.lua")
+  use({
+    "lmburns/lf.nvim",
+    config = function()
+      -- This feature will not work if the plugin is lazy-loaded
+      vim.g.lf_netrw = 1
+
+      require("lf").setup({
+        escape_quit = false,
+        border = "rounded",
+      })
+
+      vim.keymap.set("n", "<leader>e", ":Lf<CR>")
+    end,
+    requires = { "plenary.nvim", "toggleterm.nvim" },
+  })
 
   -- Bufferline
   use("akinsho/bufferline.nvim")
@@ -183,6 +195,8 @@ return packer.startup(function(use)
   -- toggleterm, awesome stuff, terminals with normal mode!
   -- toggle with <leader>§, node with <leader>tn etc.
   use("akinsho/toggleterm.nvim")
+
+  use("ja-ford/delaytrain.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
