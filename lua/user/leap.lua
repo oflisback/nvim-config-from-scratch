@@ -1,2 +1,2 @@
-vim.keymap.set("n", "<leader><Tab>", "<Plug>(leap-forward)", {})
-vim.keymap.set("n", "<leader><S-Tab>", "<Plug>(leap-backward)", {})
+vim.keymap.set("n", "<Tab>", "<Plug>(leap-forward)", {})
+vim.keymap.set("n", "<S-Tab>", "<Plug>(leap-backward)", {})

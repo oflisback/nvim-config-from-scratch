@@ -114,6 +114,7 @@ local mappings = {
     h = { "<cmd>:GHInteractive<CR>", "Open in browser" },
     j = { '<cmd>lua require"gitsigns".next_hunk()<CR>', "Next Hunk" },
     k = { '<cmd>lua require"gitsigns".prev_hunk()<CR>', "Prev Hunk" },
+    f = { "<cmd>:0Gclog<CR>", "File log" },
     p = { '<cmd>lua require"gitsigns".preview_hunk()<CR>', "Preview Hunk" },
     r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
     s = { '<cmd>lua require"gitsigns".stage_hunk()<CR>', "Stage Hunk" },
