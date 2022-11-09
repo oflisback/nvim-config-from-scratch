@@ -162,15 +162,19 @@ local mappings = {
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
-    },
   },
   s = {
-    name = "Search",
+    name = "Search and symbols",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    d = {
+      "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>",
+      "Document Symbols",
+    },
+    w = {
+      "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>",
+      "Workspace Symbols",
+    },
     f = { "<cmd>lua require('user.telescope').find_files()<cr>", "Find files" },
     t = { "<cmd>lua require('user.telescope').live_grep()<cr>", "Live grep" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },

@@ -217,10 +217,6 @@ M.oldfiles = function()
   })
 end
 
-function M.lsp_workspace_symbols()
-  require("telescope.builtin").lsp_workspace_symbols()
-end
-
 return setmetatable({}, {
   __index = function(_, k)
     if M[k] then
