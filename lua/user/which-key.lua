@@ -187,6 +187,7 @@ local mappings = {
 
   m = {
     name = "Misc :O",
+    o = { "<cmd>only<cr>", "Only" },
     p = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" },
   },
 
