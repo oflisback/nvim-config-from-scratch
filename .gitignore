@@ -8,4 +8,4 @@ rplugin.vim
 /lsp_servers
 telescope_history
 /project_nvim
-/tree-sitter-swift
+/tree-sitter-*

@@ -187,6 +187,7 @@ local mappings = {
 
   m = {
     name = "Misc :O",
+    k = { "<cmd>Telescope keymaps<cr>", "Telescope keymaps" },
     o = { "<cmd>only<cr>", "Only" },
     p = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" },
   },
