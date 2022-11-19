@@ -197,6 +197,16 @@ return packer.startup(function(use)
 
   use("ja-ford/delaytrain.nvim")
 
+  use({
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npm run compile",
+  })
+  -- debug adapter protocol implementation
+  use("mfussenegger/nvim-dap")
+  use("rcarriga/nvim-dap-ui")
+  use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

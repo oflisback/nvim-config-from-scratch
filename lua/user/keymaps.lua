@@ -63,3 +63,14 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 keymap("t", "<ESC>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+-- Debugging
+local prefix = ":lua require('dap')."
+keymap("n", "<F5>", prefix .. "continue()<CR>", opts)
+keymap("n", "<F8>", prefix .. "set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
+keymap("n", "<F9>", prefix .. "toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader><F9>", prefix .. "set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+keymap("n", "<F10>", prefix .. "step_over()<CR>", opts)
+keymap("n", "<F11>", prefix .. "step_into()<CR>", opts)
+keymap("n", "<leader><F11>", prefix .. "step_out()<CR>", opts)
+keymap("n", "<leader>dl", prefix .. "run_last()<CR>", opts)
