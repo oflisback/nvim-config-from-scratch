@@ -207,6 +207,20 @@ return packer.startup(function(use)
   use("rcarriga/nvim-dap-ui")
   use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 
+  use({
+    "nvim-neorg/neorg",
+    config = function()
+      require("neorg").setup({
+
+        load = {
+          ["core.defaults"] = {},
+        },
+      })
+    end,
+    after = "nvim-treesitter",
+    requires = "nvim-lua/plenary.nvim",
+  })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
