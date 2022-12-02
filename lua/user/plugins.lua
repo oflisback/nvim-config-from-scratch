@@ -197,11 +197,12 @@ return packer.startup(function(use)
 
   use("ja-ford/delaytrain.nvim")
 
-  use({
+  --[[   use({
     "microsoft/vscode-js-debug",
     opt = true,
     run = "npm install --legacy-peer-deps && npm run compile",
-  })
+  }) ]]
+
   -- debug adapter protocol implementation
   use("mfussenegger/nvim-dap")
   use("rcarriga/nvim-dap-ui")
@@ -220,6 +221,8 @@ return packer.startup(function(use)
     after = "nvim-treesitter",
     requires = "nvim-lua/plenary.nvim",
   })
+
+  use("github/copilot.vim")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
