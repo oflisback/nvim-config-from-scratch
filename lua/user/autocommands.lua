@@ -36,3 +36,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.lsp.buf.format({ async = false })
   end,
 })
+
+-- Add timestamp as extension for backup files
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("timestamp_backupext", { clear = true }),
+  desc = "Add timestamp to backup extension",
+  pattern = "*",
+  callback = function()
+    vim.opt.backupext = "-" .. vim.fn.strftime("%Y%m%d%H%M")
+  end,
+})
