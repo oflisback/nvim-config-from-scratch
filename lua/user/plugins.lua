@@ -196,7 +196,9 @@ return packer.startup(function(use)
   -- toggle with <leader>§, node with <leader>tn etc.
   use("akinsho/toggleterm.nvim")
 
-  use("ja-ford/delaytrain.nvim")
+  if not isBolland then
+    use("ja-ford/delaytrain.nvim")
+  end
 
   --[[   use({
     "microsoft/vscode-js-debug",

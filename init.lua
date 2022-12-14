@@ -5,7 +5,9 @@ require("user.plugins")
 require("user.impatient")
 require("user.colorscheme")
 require("user.completion")
-require("user.delaytrain")
+if not isBolland then
+  require("user.delaytrain")
+end
 require("user.dap")
 require("user.lsp")
 require("user.telescope")
