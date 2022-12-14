@@ -98,7 +98,7 @@ return packer.startup(function(use)
       require("null-ls").builtins.completion.spell,
       require("null-ls").builtins.diagnostics.eslint_d,
       require("null-ls").builtins.formatting.black,
-      require("null-ls").builtins.formatting.prettierd,
+      require("null-ls").builtins.formatting.prettier_d_slim,
       require("null-ls").builtins.formatting.stylua,
     },
   })
