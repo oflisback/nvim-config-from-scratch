@@ -1,3 +1,5 @@
+local isBolland = os.getenv("HOME"):match("bolland$") ~= nil
+
 require("user.options")
 require("user.plugins")
 require("user.impatient")
@@ -19,5 +21,8 @@ require("user.indent-blankline")
 require("user.comment")
 require("user.autocommands")
 require("user.trouble")
+if isBolland then
+  require("user.copilot")
+end
 require("user.which-key")
 require("user.keymaps")

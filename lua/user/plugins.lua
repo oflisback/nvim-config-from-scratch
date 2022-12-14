@@ -1,4 +1,5 @@
 local fn = vim.fn
+local isBolland = os.getenv("HOME"):match("bolland$") ~= nil
 
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -222,7 +223,9 @@ return packer.startup(function(use)
     requires = "nvim-lua/plenary.nvim",
   })
 
-  use("github/copilot.vim")
+  if isBolland then
+    use({ "github/copilot.vim" })
+  end
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
