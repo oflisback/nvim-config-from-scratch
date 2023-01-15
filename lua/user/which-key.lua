@@ -187,6 +187,8 @@ local mappings = {
 
   m = {
     name = "Misc :O",
+    g = { "<cmd>CellularAutomaton game_of_life<cr>", "Game of life" },
+    m = { "<cmd>CellularAutomaton make_it_rain<cr>", "Make it rain" },
     k = { "<cmd>Telescope keymaps<cr>", "Telescope keymaps" },
     o = { "<cmd>only<cr>", "Only" },
     p = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" },

@@ -210,6 +210,7 @@ return packer.startup(function(use)
   use("mfussenegger/nvim-dap")
   use("rcarriga/nvim-dap-ui")
   use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
+  use({ "eandrju/cellular-automaton.nvim" })
 
   use({
     "nvim-neorg/neorg",
