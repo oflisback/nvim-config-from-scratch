@@ -54,7 +54,9 @@ return packer.startup(function(use)
   use("wbthomason/packer.nvim") -- Have packer manage itself
   use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
-  use("~/repos/projs/private/nvim-config-switcher")
+  if isBolland then
+    use("~/repos/projs/private/nvim-config-switcher")
+  end
 
   use("folke/tokyonight.nvim")
 

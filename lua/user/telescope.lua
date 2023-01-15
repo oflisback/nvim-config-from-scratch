@@ -3,6 +3,7 @@ local themes = require("telescope.themes")
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
 
+-- ctrl+t apparently sends telescope results to quickfix window
 require("telescope").setup({
   defaults = {
     prompt_prefix = "❯ ",
