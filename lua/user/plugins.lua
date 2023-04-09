@@ -2,9 +2,9 @@ local fn = vim.fn
 local isBolland = os.getenv("HOME"):match("bolland$") ~= nil
 
 local function required(name)
-  return function()
-    require(name)
-  end
+	return function()
+		require(name)
+	end
 end
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -52,7 +52,6 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig", -- enable LSP
 	"williamboman/nvim-lsp-installer", -- simple to use language server installer
 
-
 	-- Lua file styling
 	{ "ckipp01/stylua-nvim", run = "cargo install stylua" },
 	-- Treesitter
@@ -65,36 +64,36 @@ require("lazy").setup({
 	-- indent-blankline to indicate indentation level / scope
 	"lukas-reineke/indent-blankline.nvim",
 
-  -- clipboard history browser, <leader>nc
-  {
-    "AckslD/nvim-neoclip.lua",
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-    },
-  },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	-- clipboard history browser, <leader>nc
+	{
+		"AckslD/nvim-neoclip.lua",
+		dependencies = {
+			{ "nvim-telescope/telescope.nvim" },
+		},
+	},
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-      "nvim-telescope/telescope-fzf-native.nvim",
-    },
-    config = required("user.telescope"),
-  },
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
+			"nvim-telescope/telescope-fzf-native.nvim",
+		},
+		config = required("user.telescope"),
+	},
 
-{
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-        require("null-ls").setup()
-    end,
-    requires = { "nvim-lua/plenary.nvim" },
-},
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("null-ls").setup()
+		end,
+		requires = { "nvim-lua/plenary.nvim" },
+	},
 
-  -- trouble, to direct telescope results to quickfix and more
-  -- <leader>q to send telescope result to quickfix window
-  "folke/trouble.nvim",
+	-- trouble, to direct telescope results to quickfix and more
+	-- <leader>q to send telescope result to quickfix window
+	"folke/trouble.nvim",
 
 	-- Git
 	"lewis6991/gitsigns.nvim",
@@ -106,10 +105,9 @@ require("lazy").setup({
 			vim.g.lf_netrw = 1
 
 			require("lf").setup({
-			escape_quit = false,
-			border = "rounded"
+				escape_quit = false,
+				border = "rounded",
 			})
-
 		end,
 		dependencies = { "plenary.nvim", "toggleterm.nvim" },
 	},
@@ -145,19 +143,19 @@ require("lazy").setup({
 	-- undotree, <leader>u to toggle undo tree panel
 	"mbbill/undotree",
 
-  "cljoly/telescope-repo.nvim",
+	"cljoly/telescope-repo.nvim",
 	"airblade/vim-rooter",
 
-  -- You may need to manually do yarn install in:
-  -- ~/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim/
-  -- to get it working.
+	-- You may need to manually do yarn install in:
+	-- ~/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim/
+	-- to get it working.
 	{
 		"iamcco/markdown-preview.nvim",
 		init = function()
 			vim.g.mkdp_filetypes = { "markdown" }
-			vim.g.mkdp_browser = 'firefox'
+			vim.g.mkdp_browser = "firefox"
 		end,
-    build = "cd app && npm install",
+		build = "cd app && npm install",
 		ft = { "markdown" },
 	},
 
@@ -171,5 +169,5 @@ require("lazy").setup({
 	"mfussenegger/nvim-dap",
 	"rcarriga/nvim-dap-ui",
 	{ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } },
-	{ "eandrju/cellular-automaton.nvim" }
+	{ "eandrju/cellular-automaton.nvim" },
 })

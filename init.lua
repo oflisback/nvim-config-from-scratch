@@ -6,7 +6,7 @@ require("user.impatient")
 require("user.colorscheme")
 require("user.completion")
 if not isBolland then
-  require("user.delaytrain")
+	require("user.delaytrain")
 end
 require("user.dap")
 require("user.lsp")
@@ -25,7 +25,7 @@ require("user.comment")
 require("user.autocommands")
 require("user.trouble")
 if isBolland then
-  require("user.copilot")
+	require("user.copilot")
 end
 require("user.which-key")
 require("user.keymaps")
