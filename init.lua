@@ -10,6 +10,7 @@ if not isBolland then
 end
 require("user.dap")
 require("user.lsp")
+require("user.null-ls")
 require("user.telescope")
 require("user.treesitter")
 require("user.gitsigns")

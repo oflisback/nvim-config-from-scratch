@@ -74,3 +74,5 @@ keymap("n", "<F10>", prefix .. "step_over()<CR>", opts)
 keymap("n", "<F11>", prefix .. "step_into()<CR>", opts)
 keymap("n", "<leader><F11>", prefix .. "step_out()<CR>", opts)
 keymap("n", "<leader>dl", prefix .. "run_last()<CR>", opts)
+
+keymap("n", "<leader>e", ":Lf<CR>", opts)
