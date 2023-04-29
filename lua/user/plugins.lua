@@ -69,6 +69,8 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp-signature-help") -- function signatures
 	use("hrsh7th/cmp-nvim-lua")
 
+	use("nvim-neorg/neorg")
+
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
@@ -216,15 +218,8 @@ return packer.startup(function(use)
 
 	use({
 		"nvim-neorg/neorg",
-		config = function()
-			require("neorg").setup({
-
-				load = {
-					["core.defaults"] = {},
-				},
-			})
-		end,
 		after = "nvim-treesitter",
+		run = ":Neorg sync-parsers",
 		requires = "nvim-lua/plenary.nvim",
 	})
 
