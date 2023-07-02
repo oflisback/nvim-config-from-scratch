@@ -1,21 +1,6 @@
 local fn = vim.fn
 local isBolland = os.getenv("HOME"):match("bolland$") ~= nil
 
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
-end
-
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
   augroup packer_user_config
@@ -53,10 +38,6 @@ return packer.startup(function(use)
 
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-
-	if isBolland then
-		use("~/repos/projs/private/nvim-config-switcher")
-	end
 
 	use("folke/tokyonight.nvim")
 
@@ -186,15 +167,11 @@ return packer.startup(function(use)
 	use("cljoly/telescope-repo.nvim")
 	use("airblade/vim-rooter")
 
-	-- markdown-preview, required manual install bc of config switcher
-	-- but is worth it! <leader>mp to toggle markdown preview
-	use({
-		"iamcco/markdown-preview.nvim",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	})
+	-- <leader>mp to toggle markdown preview
+	-- requires manual install, see markdowns-preview README
+	-- Do remember to clone it to :echo stdpath('data'), especially
+	-- important if using NVIM_APPNAME for multi-config.
+	use({ "iamcco/markdown-preview.nvim" })
 
 	-- toggleterm, awesome stuff, terminals with normal mode!
 	-- toggle with <leader>§, node with <leader>tn etc.
