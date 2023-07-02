@@ -69,6 +69,8 @@ return packer.startup(function(use)
 		},
 	})
 
+	use("nvim-tree/nvim-web-devicons")
+
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
@@ -216,10 +218,6 @@ return packer.startup(function(use)
 		run = ":Neorg sync-parsers",
 		requires = "nvim-lua/plenary.nvim",
 	})
-
-	if isBolland then
-		use({ "github/copilot.vim" })
-	end
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
