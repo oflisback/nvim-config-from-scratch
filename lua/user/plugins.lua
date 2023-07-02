@@ -146,6 +146,18 @@ return packer.startup(function(use)
 	-- For files with mixed structures and comment styles eg ts+jsx
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
+	use({
+		"ggandor/flit.nvim",
+		config = function()
+			require("flit").setup({
+				keys = { f = "f", F = "F", t = "t", T = "T" },
+				labeled_modes = "nv",
+				multiline = true,
+				opts = {},
+			})
+		end,
+	})
+
 	-- leap for quick movement in visible part of buffer
 	-- <leader><Tab> for forward, <leader><S-Tab> for reverse.
 	use("ggandor/leap.nvim")
