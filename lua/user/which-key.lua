@@ -93,15 +93,8 @@ local mappings = {
   ["F"] = { "<cmd>lua require('user.telescope').live_grep()<cr>", "Find text" },
   ["u"] = { "<cmd>UndotreeToggle<cr>", "Undo tree" },
   ["P"] = { "<cmd>Telescope repo list<cr>", "Repo list" },
+  ["p"] = { "<cmd>ChatGPT<cr>", "ChatGPT" }
 
-  p = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
-  },
   g = {
     name = "+Git",
     b = { "<cmd>Git blame<cr>", "Blame" },
