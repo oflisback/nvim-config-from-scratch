@@ -31,11 +31,11 @@ local with_root_file = function(...)
 	end
 end
 
+vim.loader.enable()
+
 -- Install your plugins here
 return packer.startup(function(use)
 	-- My plugins here
-	use("lewis6991/impatient.nvim")
-
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
