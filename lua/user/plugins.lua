@@ -225,6 +225,13 @@ return packer.startup(function(use)
 	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 	use({ "eandrju/cellular-automaton.nvim" })
 
+	use({
+		"max397574/better-escape.nvim",
+		config = function()
+			require("better_escape").setup({ mapping = { "jj" } })
+		end,
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
