@@ -58,6 +58,9 @@ return packer.startup(function(use)
 				popup_input = {
 					submit = "<C-s>",
 				},
+				openai_params = {
+					model = "gpt-4",
+				},
 			})
 		end,
 		requires = {
